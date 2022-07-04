@@ -1,3 +1,19 @@
+<?php
+$server = "localhost";
+$username = "root";
+$password = "";
+$database = "web2";
+
+
+// the variable $conn can be written as anything and still work but the have to be the same yaani $conn $conn or $mk $mk
+$conn = mysqli_connect($server,$username,$password,$database);
+$sqliQuery = mysqli_query($conn,"SELECT * FROM enrollment");
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +37,7 @@
 		<nav>
 			<ul>
 				<li>
-					<a href="index.html">
+					<a href="index.php">
 						<span> <i class="fa fa-group"></i></span>
 						<span>Students</span>
 					</a>
@@ -64,26 +80,28 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1.</td>
-                                    <td>Mutuku Kasyoka</td>
-                                    <td>+254722568956</td>
-                                    <td>mlachinosis15@gmail.com</td>
-                                    <td>Male</td>
-                                    <td>Android development</td>
-                                    <td>22nd Mar 2022</td>
-                                    <td>
-                                        <a href="#" class="btn btn-primary btn-sm">
-                                            <i class="fa fa-edit"></i>
-                                        </a>
-                                        <a href="#" class="btn btn-info btn-sm">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
-                                        <a href="#" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
+								<?php  while($fetch = mysqli_fetch_array($sqliQuery)) {?>
+									<tr>
+										<td><?php echo $fetch['no']  ?></td>
+										<td><?php echo $fetch['fullname']  ?></td>
+										<td><?php echo $fetch['phonenumber']  ?></td>
+										<td><?php echo $fetch['email']  ?></td>
+										<td><?php echo $fetch['gender']  ?></td>
+										<td><?php echo $fetch['course']  ?></td>
+										<td><?php echo $fetch['created_at']  ?></td>
+										<td>
+											<a href="#" class="btn btn-primary btn-sm">
+												<i class="fa fa-edit"></i>
+											</a>
+											<a href="#" class="btn btn-info btn-sm">
+												<i class="fa fa-eye"></i>
+											</a>
+											<a href="#" class="btn btn-danger btn-sm">
+												<i class="fa fa-trash"></i>
+											</a>
+                                    	</td>
+									</tr>
+								<?php }?>
                             </tbody>
                         </table>
                     </div>
@@ -99,3 +117,5 @@
 <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+
