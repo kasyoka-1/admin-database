@@ -23,33 +23,43 @@
 
 
     <div class="container-fluid pt-5">
+        <div class="row">
+            <div class="col-lg-4">
+            </div>
+            <div class="col-lg-4">
+                <div class="card" style="width:50rem;">
+                    <div class="card-body">
+                        <form action="index.php" method="POST">
+                            <div class="mb-3 col-lg-3">
+                            <label for="username" class="form-label">Username:</label>
+                            <input type="text" class="form-control">
+                            </div>
+                            <div class="mb-3 col-lg-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="text" class="form-control">
+                            </div>
+                            <div class="mb-3 col-lg-3">
+                                <label for="password" class="form-label">Password:</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="mb-3 col-lg-3">
+                                <label for="confirm" class="form-label">Confirm:</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            
+                            
+                            <button type="registerbtn" class="btn btn-primary">Submit</button>
+                            <p3>Have an account? Sign in <a href="#">here</a></p3>
+                        </form>
 
-        <div class="card" style="width:50rem;">
-        <div class="card-body">
-            <form action="index.php" method="POST">
-                <div class="mb-3 col-lg-3">
-                <label for="username" class="form-label">Username:</label>
-                <input type="text" class="form-control">
+                    </div>
                 </div>
-                <div class="mb-3 col-lg-3">
-                <label for="email" class="form-label">Email:</label>
-                <input type="text" class="form-control">
-                </div>
-                <div class="mb-3 col-lg-3">
-                    <label for="password" class="form-label">Password:</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="mb-3 col-lg-3">
-                    <label for="confirm" class="form-label">Confirm:</label>
-                    <input type="text" class="form-control">
-                </div>
-                
-                
-                <button type="registerbtn" class="btn btn-primary">Submit</button>
-                <p3>Have an account? Sign in <a href="#">here</a></p3>
-            </form>
-
+            </div>
+            <div class="col-lg-4">
+            </div>
         </div>
+        
+
     </div>
 
 
