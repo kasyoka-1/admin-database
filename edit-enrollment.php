@@ -1,8 +1,11 @@
-<?php require_once("logics/dbconnection.php");
+<?php 
+$message = "";
+require_once("logics/dbconnection.php");
 $queryuser = mysqli_query($conn,"SELECT * FROM enrollment WHERE no='".$_GET['id']."' ");
 
 while($fetchuser=mysqli_fetch_array($queryuser))
 {
+    $id = $fetchuser['no'];
     $fullname = $fetchuser['fullname'];
     $phonenumber = $fetchuser['phonenumber'];
     $email = $fetchuser['email'];
@@ -15,11 +18,11 @@ while($fetchuser=mysqli_fetch_array($queryuser))
 if(isset($_POST["updatebutton"]))
 {
     // fetch form data
-    $name = $_POST["fullname"];
-    $phone = $_POST["phonenumber"];
-    $emailAddress = $_POST["email"];
-    $formgender = $_POST["gender"];
-    $formcourse = $_POST["course"];
+    $name = $_POST['fullname'];
+    $phone = $_POST['phonenumber'];
+    $emailAddress = $_POST['email'];
+    $formgender = $_POST['gender'];
+    $formcourse = $_POST['course'];
 
 
     // update records
@@ -28,11 +31,11 @@ if(isset($_POST["updatebutton"]))
 
     if($updatequery)
     {
-        echo "Data Updated";
+        $message= "Data Updated";
     }
     else
     {
-        echo "Error occured";
+        $message= "Error occured";
     }
 }
 
@@ -59,9 +62,10 @@ if(isset($_POST["updatebutton"]))
                     <div class="card">
                         <div class="card-header bg-dark text-white text-center">
                             <h4>Edit Student: <?php echo $fullname ?></h4>
+                            <span><?php echo $message ?></span>
                         </div>
                         <div class="card-body">
-                            <form action="edit-enrollment.php" method="POST" class="container">
+                            <form action="edit-enrollment.php?id=<?php echo $id?>" method="POST" class="container">
                                     <div class="row">
                                         <div class="pb-3 col-lg-12">
                                             <label for="fullname" class="form-label">Full Name:</label>
@@ -82,6 +86,7 @@ if(isset($_POST["updatebutton"]))
                                     </div>
                                     <div class="row">
                                         <div class="pb-3 col-lg-12">
+
                                             <label for="gender" class="form-label">Gender:</label><br>
                                             <select name="gender" class="form-control" name="gender" aria-label="Default select example">
                                                 <option value="<?php echo $gender?>">Male</option>

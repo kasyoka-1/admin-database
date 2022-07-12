@@ -29,7 +29,7 @@ $sqliQuery = mysqli_query($conn,"SELECT * FROM enrollment");
 						<span>Students</span>
 					</div>
                     <div class="card-body">
-                        <table class="table table-striped table-hover table-responsive">
+                        <table class="table table-striped table-hover table-responsive" style="font-style: 12px">
                             <thead>
                                 <tr>
                                     <th>No.</th>

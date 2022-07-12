@@ -1,3 +1,22 @@
+<?php
+require_once("logics/dbconnection.php");
+
+// count all enrolled students
+$queryallstudents = mysqli_query($conn, "SELECT * FROM enrollment");
+$countallstudents = mysqli_num_rows($queryallstudents);
+
+// count by gender
+$queryallfemale = mysqli_query($conn, "SELECT * FROM enrollment WHERE gender='female'");
+$countallfemale = mysqli_num_rows($queryallfemale);
+
+
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <?php require_once("includes/headers.php")?>
@@ -26,7 +45,7 @@
 					</div>
 					<div class="card-body">
 						<span> <i class="fa fa-group fa-3x"></i></span>
-						<span class="float-right">00</span>
+						<span class="float-right badge badge-dark"><?php echo $countallstudents?></span>
 					</div>
 					<div class="card-footer"></div>
 				</div>
@@ -36,7 +55,7 @@
 					</div>
 					<div class="card-body">
 						<span> <i class="fa fa-folder-open fa-3x"></i></span>
-						<span class="float-right">00</span>
+						<span class="float-right"><?php echo $countallfemale?></span>
 					</div>
 					<div class="card-footer"></div>
 				</div>
