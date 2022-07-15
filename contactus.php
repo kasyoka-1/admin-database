@@ -50,11 +50,6 @@ $sqliQuery = mysqli_query($conn,"SELECT * FROM contactus");
 										<td><?php echo $fetch['phonenumber']  ?></td>
 										<td><?php echo $fetch['email']  ?></td>
 										<td><?php echo $fetch['message']  ?></td>
-										<td>
-											<a href="#" class="btn btn-danger btn-sm">
-												<i class="fa fa-trash"></i>
-											</a>
-                                    	</td>
 									</tr>
 								<?php }?>
                             </tbody>
