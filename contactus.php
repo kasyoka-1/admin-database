@@ -50,6 +50,17 @@ $sqliQuery = mysqli_query($conn,"SELECT * FROM contactus");
 										<td><?php echo $fetch['phonenumber']  ?></td>
 										<td><?php echo $fetch['email']  ?></td>
 										<td><?php echo $fetch['message']  ?></td>
+										<td>
+											<a href="edit-contactus.php?id=<?php echo $fetch['no']  ?>" class="btn btn-primary btn-sm">
+												<i class="fa fa-edit"></i>
+											</a>
+											<a href="view-contactus.php?id=<?php echo $fetch['no'] ?>" class="btn btn-info btn-sm">
+												<i class="fa fa-eye"></i>
+											</a>
+											<a href="delete-contactus.php?id=<?php echo $fetch['no']?>" class="btn btn-danger btn-sm">
+												<i class="fa fa-trash"></i>
+											</a>
+                                    	</td>
 									</tr>
 								<?php }?>
                             </tbody>

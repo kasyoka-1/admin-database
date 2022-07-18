@@ -1,17 +1,22 @@
 <?php
 //database connection
 require_once('logics\dbconnection.php');
-$sqlFetchStudents=mysqli_query($conn, "SELECT * FROM enrollment WHERE no='".$_GET['id']."'");
+$sqlfetchuser=mysqli_query($conn, "SELECT * FROM contactus WHERE no='".$_GET['id']."'");
 
-while($fetchStudentsRecords = mysqli_fetch_array($sqlFetchStudents))
+while($fetchuserrecords=mysqli_fetch_array($sqlfetchuser))
 {
-    $Fullname = $fetchStudentsRecords['fullname'];
-    $phone= $fetchStudentsRecords['phonenumber'];
-    $email = $fetchStudentsRecords['email'];
-    $giender= $fetchStudentsRecords['gender'];
-    $course= $fetchStudentsRecords['course'];
-    $createdAt= $fetchStudentsRecords['created_at'];
+    $id = $fetchuserrecords['no'];
+    $firstname = $fetchuserrecords['firstname'];
+    $lastname = $fetchuserrecords['lastname'];
+    $phonenumber = $fetchuserrecords['phonenumber'];
+    $emailaddress = $fetchuserrecords['email'];
+    $Message = $fetchuserrecords['message'];
+    
+    
 }
+
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,9 +40,9 @@ while($fetchStudentsRecords = mysqli_fetch_array($sqlFetchStudents))
                         </div>
                             <div class="card-body">
                                 <div class="list-group">
-                                    <div class="list-group-item">Full Name <span class="float-right badge badge-info"><?php echo $Fullname?></span></div>
-                                    <div class="list-group-item">Email<span class="float-right badge badge-secondary"><?php echo $email?></span></div>
-                                    <div class="list-group-item">Phone Number<span class="float-right badge badge-danger"><?php echo $phone?></span></div>
+                                    <div class="list-group-item">Firstname <span class="float-right badge badge-info"><?php echo $firstname?></span></div>
+                                    <div class="list-group-item">Lastname<span class="float-right badge badge-secondary"><?php echo $lastname?></span></div>
+                                    <div class="list-group-item">Phone Number<span class="float-right badge badge-danger"><?php echo $phonenumber?></span></div>
                                 </div>
                             </div>
                          </div>
@@ -50,9 +55,8 @@ while($fetchStudentsRecords = mysqli_fetch_array($sqlFetchStudents))
                         </div>
                             <div class="card-body">
                                 <div class="list-group">
-                                    <div class="list-group-item">Gender <span class="float-right badge badge-info"><?php echo $gender?></span></div>
-                                    <div class="list-group-item">Course<span class="float-right badge badge-secondary"><?php echo $course?></span></div>
-                                    <div class="list-group-item">Created At<span class="float-right badge badge-danger"><?php echo $createdAt?></span></div>
+                                    <div class="list-group-item">Email <span class="float-right badge badge-info"><?php echo $emailaddress?></span></div>
+                                    <div class="list-group-item">Message<span class="float-right badge badge-secondary"><?php echo $Message?></span></div>
                                 </div>
                             </div>
                          </div>
